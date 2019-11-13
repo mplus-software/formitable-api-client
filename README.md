@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/mplus-software/formitable-api-client.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "mplus-software/formitable-api-client": "*@dev"
   }
 }
 ```
