@@ -1,0 +1,46 @@
+# RestaurantPublicViewModel
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**uid** | **string** | The unique identifier of the restaurant. You use this identifier to address other api methods specific to the restaurant. | [optional] 
+**color** | **string** | The primary color of the resataurant in hexidecimal format. (Example: #148ACF) | [optional] 
+**logo** | **string** | The logo of the resataurant. | [optional] 
+**name** | **string** | The name of the restaurant. | [optional] 
+**street_address** | **string** | The streetaddress including housenumber. | [optional] 
+**zipcode** | **string** | The zipcode. | [optional] 
+**city** | **string** | The city. | [optional] 
+**neighbourhood** | **string** | Neighbourhood | [optional] 
+**province** | **string** | Province or region of the restaurant | [optional] 
+**longitude** | **double** |  | [optional] 
+**latitude** | **double** |  | [optional] 
+**country** | **string** | The country. | [optional] 
+**email** | **string** | The main e-mail address. | [optional] 
+**website** | **string** | The public website of the restaurant. | [optional] 
+**telephone** | **string** | The public telephone number. | [optional] 
+**instagram** | **string** | The instagram id. | [optional] 
+**facebook** | **string** | The facebook id. | [optional] 
+**foursquare** | **string** | The foursquare id. | [optional] 
+**google** | **string** | The google id. | [optional] 
+**twitter** | **string** | The twitter name. | [optional] 
+**min_regular_booking** | **int** | Minimum number of persons that a booking can consist of. | [optional] 
+**max_regular_booking** | **int** | Maximum number of persons that a regular booking can consist of. | [optional] 
+**group_booking_enabled** | **bool** | {true} if group bookings are enabled; otherwise, {false}. | [optional] 
+**max_group_booking** | **int** | The maximum number of persons that a group booking can consist of. | [optional] 
+**create_policy** | **string** | The minimum amount of time a booking must be made in advance of the start time of the reservation.  Format: [0-9][h/d/w] h:hours, d: days, w: weeks.  Example: 3h -&amp;gt; The earliest reservation time for a booking made at 16:00 is 19:00. | [optional] 
+**change_policy** | **string** | The maximum allowed time a booking can be changed before the start time of the reservation.  Format: [0-9][h/d/w] h:hours, d: days, w: weeks.  Example: 3h -&amp;gt; The latest possible time to change a reservation for 20:00 is 17:00. | [optional] 
+**cancel_policy** | **string** | The maximum allowed time a booking can be cancelled before the start time of the reservation.  Format: [0-9][h/d/w] h:hours, d: days, w: weeks.  Example: 3h -&amp;gt; The latest possible time to cancel a reservation for 19:00 is 16:00. | [optional] 
+**start_culture** | **string** | The standard culture for this restaurant in two letter ISO culture format. Example: &#x27;nl&#x27;. | [optional] 
+**description** | **string** | Creates context around the restaurant – who the players are, what they’re known for, the origin of the concept, specialty dishes, accolades – written in the third person (not using first person “we” or “us”). | [optional] 
+**from_the_venue** | **string** | Essential information pertaining to logistics (think parking/valet, reservation policies, tables of 8 or more contact directly, walk-in seating details). | [optional] 
+**why_we_like_it** | **string** | A boiled-down take of the ideal use case for a particular venue, what makes the restaurant special, or any fun facts. | [optional] 
+**cuisine_type** | **string** | The (primary) type of cuisine that is served in this restaurant. | [optional] 
+**restaurant_group_name** | **string** | Name of the group/chain the restaurant belongs to. | [optional] 
+**price_range** | **int** | The price range of the restaurant from 1 to 5, for the customers to make comparisons. 1 denoting inexpensive. | [optional] 
+**style** | **string** | The (primary) style of the restaurant. | [optional] 
+**average_amount_per_person** | **double** | The average amount of currency to be paid per person for a typical menu. | [optional] 
+**max_guests_per_slot** | **int** | The max number of guests allowed per timeslot. Unlimitid is -1 | [optional] 
+**restaurant_features** | **string[]** | The features that are enabled for the restaurant | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
