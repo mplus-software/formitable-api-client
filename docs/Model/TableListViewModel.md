@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | The identitifier of the table. | [optional] 
+**id** | **int** | The identifier of the table. | [optional] 
 **pos_id** | **string** | The external reference of the Point of Sale system | [optional] 
 **name** | **string** | The name of the table. | [optional] 
 **min_people** | **int** | The minimum number of people that may be seated at this table. | [optional] 

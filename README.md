@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/mplus-software/formitable-api-client.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "mplus-software/formitable-api-client": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
@@ -61,11 +61,11 @@ $apiInstance = new Swagger\Client\Api\AreaApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$restaurant_uid = "restaurant_uid_example"; // string | The unique identifier of the restaurant.
 $version = "version_example"; // string | 
-$restaurant_uid = "restaurant_uid_example"; // string | 
 
 try {
-    $result = $apiInstance->areaGet($version, $restaurant_uid);
+    $result = $apiInstance->areaGet($restaurant_uid, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AreaApi->areaGet: ', $e->getMessage(), PHP_EOL;
@@ -76,12 +76,12 @@ $apiInstance = new Swagger\Client\Api\AreaApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$restaurant_uid = "restaurant_uid_example"; // string | The unique identifier of the restaurant.
 $area_id = 56; // int | 
 $version = "version_example"; // string | 
-$restaurant_uid = "restaurant_uid_example"; // string | 
 
 try {
-    $result = $apiInstance->areaGetById($area_id, $version, $restaurant_uid);
+    $result = $apiInstance->areaGetById($restaurant_uid, $area_id, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AreaApi->areaGetById: ', $e->getMessage(), PHP_EOL;
@@ -95,52 +95,65 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AreaApi* | [**areaGet**](docs/Api/AreaApi.md#areaget) | **GET** /api/v{version}/{restaurantUid}/areas | Get area list
-*AreaApi* | [**areaGetById**](docs/Api/AreaApi.md#areagetbyid) | **GET** /api/v{version}/{restaurantUid}/areas/{areaId} | Get Area
-*AvailabilityApi* | [**availabilityGetAvailabilityForDays**](docs/Api/AvailabilityApi.md#availabilitygetavailabilityfordays) | **GET** /api/v{version}/{restaurantUid}/availability/days/{from}/{days}/{numberOfPeople}/{language} | Get day availability
-*AvailabilityApi* | [**availabilityGetAvailabilityForMonth**](docs/Api/AvailabilityApi.md#availabilitygetavailabilityformonth) | **GET** /api/v{version}/{restaurantUid}/availability/month/{month}/{year}/{numberOfPeople}/{language} | Get month availability
-*AvailabilityApi* | [**availabilityGetFirstDateTime**](docs/Api/AvailabilityApi.md#availabilitygetfirstdatetime) | **GET** /api/v{version}/{restaurantUid}/availability/first/{numberOfPeople}/{language} | Get first availability
-*AvailabilityApi* | [**availabilityGetOpenTimesForDay**](docs/Api/AvailabilityApi.md#availabilitygetopentimesforday) | **GET** /api/v{version}/{restaurantUid}/availability/open/{date} | Get open times
-*AvailabilityApi* | [**availabilityGetTimesForDay**](docs/Api/AvailabilityApi.md#availabilitygettimesforday) | **GET** /api/v{version}/{restaurantUid}/availability/day/{date}/{numberOfPeople}/{language} | Get times for a day
+*AreaApi* | [**areaGet**](docs/Api/AreaApi.md#areaget) | **GET** /api/v{version}/{restaurantUid}/areas | Get the list of areas of the restaurant
+*AreaApi* | [**areaGetById**](docs/Api/AreaApi.md#areagetbyid) | **GET** /api/v{version}/{restaurantUid}/areas/{areaId} | Get the details of a specific area
+*AvailabilityApi* | [**availabilityGetAvailabilityForDays**](docs/Api/AvailabilityApi.md#availabilitygetavailabilityfordays) | **GET** /api/v{version}/{restaurantUid}/availability/days/{from}/{days}/{numberOfPeople}/{language} | Get days availability
+*AvailabilityApi* | [**availabilityGetAvailabilityForMonth**](docs/Api/AvailabilityApi.md#availabilitygetavailabilityformonth) | **GET** /api/v{version}/{restaurantUid}/availability/month/{month}/{year}/{numberOfPeople}/{language} | Get availability of month
+*AvailabilityApi* | [**availabilityGetFirstDateTime**](docs/Api/AvailabilityApi.md#availabilitygetfirstdatetime) | **GET** /api/v{version}/{restaurantUid}/availability/first/{numberOfPeople}/{language} | Get first available date
+*AvailabilityApi* | [**availabilityGetOpenTimesForDay**](docs/Api/AvailabilityApi.md#availabilitygetopentimesforday) | **GET** /api/v{version}/{restaurantUid}/availability/open/{date} | Get opening times
+*AvailabilityApi* | [**availabilityGetTimesForDay**](docs/Api/AvailabilityApi.md#availabilitygettimesforday) | **GET** /api/v{version}/{restaurantUid}/availability/day/{date}/{numberOfPeople}/{language} | Get times of a day
 *AvailabilityApi* | [**availabilityIsAvailable**](docs/Api/AvailabilityApi.md#availabilityisavailable) | **GET** /api/v{version}/{restaurantUid}/availability/available/{dateTime}/{numberOfPeople} | Verify availability
 *BookingApi* | [**bookingCancel**](docs/Api/BookingApi.md#bookingcancel) | **DELETE** /api/v{version}/{restaurantUid}/booking/{uid} | Cancel booking
-*BookingApi* | [**bookingCheckIn**](docs/Api/BookingApi.md#bookingcheckin) | **PUT** /api/v{version}/{restaurantUid}/booking/checkin/{uid} | Check-in guest
-*BookingApi* | [**bookingCheckOut**](docs/Api/BookingApi.md#bookingcheckout) | **PUT** /api/v{version}/{restaurantUid}/booking/checkout/{uid} | Check-out guest
+*BookingApi* | [**bookingCheckIn**](docs/Api/BookingApi.md#bookingcheckin) | **PUT** /api/v{version}/{restaurantUid}/booking/checkin/{uid} | Check-in booking
+*BookingApi* | [**bookingCheckOut**](docs/Api/BookingApi.md#bookingcheckout) | **PUT** /api/v{version}/{restaurantUid}/booking/checkout/{uid} | Check-out booking
 *BookingApi* | [**bookingCreate**](docs/Api/BookingApi.md#bookingcreate) | **POST** /api/v{version}/{restaurantUid}/booking | Create booking
-*BookingApi* | [**bookingCreateMessage**](docs/Api/BookingApi.md#bookingcreatemessage) | **POST** /api/v{version}/{restaurantUid}/booking/{uid}/message | Create message
-*BookingApi* | [**bookingCreateMessageToUser**](docs/Api/BookingApi.md#bookingcreatemessagetouser) | **POST** /api/v{version}/{restaurantUid}/booking/{uid}/messagetouser | Create message to user
-*BookingApi* | [**bookingGetActivity**](docs/Api/BookingApi.md#bookinggetactivity) | **GET** /api/v{version}/{restaurantUid}/booking/{uid}/activity | Get booking activity
+*BookingApi* | [**bookingCreateMessage**](docs/Api/BookingApi.md#bookingcreatemessage) | **POST** /api/v{version}/{restaurantUid}/booking/{uid}/message | Create user message
+*BookingApi* | [**bookingCreateMessageToUser**](docs/Api/BookingApi.md#bookingcreatemessagetouser) | **POST** /api/v{version}/{restaurantUid}/booking/{uid}/messagetouser | Create restaurant message
+*BookingApi* | [**bookingGetBookingByExternalReferenceId**](docs/Api/BookingApi.md#bookinggetbookingbyexternalreferenceid) | **GET** /api/v{version}/{restaurantUid}/booking/external/{source}/{externalReferenceId} | Get a booking using the external source and reference ID.
 *BookingApi* | [**bookingGetByUid**](docs/Api/BookingApi.md#bookinggetbyuid) | **GET** /api/v{version}/{restaurantUid}/booking/{uid} | Get booking
 *BookingApi* | [**bookingGetFutureBookings**](docs/Api/BookingApi.md#bookinggetfuturebookings) | **GET** /api/v{version}/{restaurantUid}/booking/{from}/{days} | Get future bookings
-*BookingApi* | [**bookingGetMessages**](docs/Api/BookingApi.md#bookinggetmessages) | **GET** /api/v{version}/{restaurantUid}/booking/{uid}/message | Get booking messages
-*BookingApi* | [**bookingUpdate**](docs/Api/BookingApi.md#bookingupdate) | **PUT** /api/v{version}/{restaurantUid}/booking/{uid} | Change booking
-*RestaurantApi* | [**appRestaurantSettings**](docs/Api/RestaurantApi.md#apprestaurantsettings) | **GET** /api/v{version}/restaurants/{restaurantUid}/appsettings | Get app settings
-*RestaurantApi* | [**restaurantGet**](docs/Api/RestaurantApi.md#restaurantget) | **GET** /api/v{version}/restaurants | Restaurant list
+*BookingApi* | [**bookingGetMessages**](docs/Api/BookingApi.md#bookinggetmessages) | **GET** /api/v{version}/{restaurantUid}/booking/{uid}/message | Get messages of booking
+*BookingApi* | [**bookingUpdate**](docs/Api/BookingApi.md#bookingupdate) | **PUT** /api/v{version}/{restaurantUid}/booking/{uid} | Update booking
+*ConfigurationApi* | [**configForDay**](docs/Api/ConfigurationApi.md#configforday) | **GET** /api/v{version}/{restaurantUid}/configuration/day/{date} | Get configuration of a day
+*ConfigurationApi* | [**configForDayAndPeople**](docs/Api/ConfigurationApi.md#configfordayandpeople) | **GET** /api/v{version}/{restaurantUid}/configuration/{dateTime}/{numberOfPeople} | Get configuration
+*ConfigurationApi* | [**configsBatch**](docs/Api/ConfigurationApi.md#configsbatch) | **POST** /api/v{version}/{restaurantUid}/configuration/batch | Get batch of configurations
+*ConfigurationApi* | [**configsForMonth**](docs/Api/ConfigurationApi.md#configsformonth) | **GET** /api/v{version}/{restaurantUid}/configuration/month/{year}/{month} | Get configuration of month
+*ProductApi* | [**productTicketGetTickets**](docs/Api/ProductApi.md#productticketgettickets) | **GET** /api/v{version}/{restaurantUid}/product/ticket | Get tickets
+*ProductApi* | [**productTicketGetVouchers**](docs/Api/ProductApi.md#productticketgetvouchers) | **GET** /api/v{version}/{restaurantUid}/product/voucher | Get gift vouchers
+*RestaurantApi* | [**appRestaurantSettings**](docs/Api/RestaurantApi.md#apprestaurantsettings) | **GET** /api/v{version}/restaurants/{restaurantUid}/appsettings | Gets app settings of the restaurant. This can only be called by Apps.
+*RestaurantApi* | [**restaurantGet**](docs/Api/RestaurantApi.md#restaurantget) | **GET** /api/v{version}/restaurants | Get restaurant list
 *RestaurantApi* | [**restaurantGetByUid**](docs/Api/RestaurantApi.md#restaurantgetbyuid) | **GET** /api/v{version}/restaurants/{restaurantUid} | Get restaurant
-*RestaurantApi* | [**restaurantGetReviews**](docs/Api/RestaurantApi.md#restaurantgetreviews) | **GET** /api/v{version}/restaurants/{restaurantUid}/reviews | Restaurant reviews list
-*TableApi* | [**tableGet**](docs/Api/TableApi.md#tableget) | **GET** /api/v{version}/{restaurantUid}/tables | Get table list
-*TableApi* | [**tableGetByAreaId**](docs/Api/TableApi.md#tablegetbyareaid) | **GET** /api/v{version}/{restaurantUid}/tables/area/{areaId} | Get area table list
-*TableApi* | [**tableGetById**](docs/Api/TableApi.md#tablegetbyid) | **GET** /api/v{version}/{restaurantUid}/tables/{tableId} | Get table
+*RestaurantApi* | [**restaurantGetReviewSummary**](docs/Api/RestaurantApi.md#restaurantgetreviewsummary) | **GET** /api/v{version}/restaurants/{restaurantUid}/reviewsummary/{dateFrom} | Get reviews summary
+*RestaurantApi* | [**restaurantGetReviews**](docs/Api/RestaurantApi.md#restaurantgetreviews) | **GET** /api/v{version}/restaurants/{restaurantUid}/reviews | Get reviews
+*TableApi* | [**tableGet**](docs/Api/TableApi.md#tableget) | **GET** /api/v{version}/{restaurantUid}/tables | Get the list of active tables in the restaurant
+*TableApi* | [**tableGetByAreaId**](docs/Api/TableApi.md#tablegetbyareaid) | **GET** /api/v{version}/{restaurantUid}/tables/area/{areaId} | Get the list of active tables in the specified area
+*TableApi* | [**tableGetById**](docs/Api/TableApi.md#tablegetbyid) | **GET** /api/v{version}/{restaurantUid}/tables/{tableId} | Get the details of a specific table
 
 ## Documentation For Models
 
  - [AreaViewModel](docs/Model/AreaViewModel.md)
- - [BookingActivityPublicViewModel](docs/Model/BookingActivityPublicViewModel.md)
- - [BookingCreatePublicViewModel](docs/Model/BookingCreatePublicViewModel.md)
- - [BookingDatePublicViewModel](docs/Model/BookingDatePublicViewModel.md)
- - [BookingPublicViewModel](docs/Model/BookingPublicViewModel.md)
+ - [BookingCreateViewModel](docs/Model/BookingCreateViewModel.md)
+ - [BookingDateViewModel](docs/Model/BookingDateViewModel.md)
  - [BookingTimePublic](docs/Model/BookingTimePublic.md)
- - [BookingUpdatePublicViewModel](docs/Model/BookingUpdatePublicViewModel.md)
- - [MessageCreatePublicViewModel](docs/Model/MessageCreatePublicViewModel.md)
- - [MessagePublicViewModel](docs/Model/MessagePublicViewModel.md)
+ - [BookingUpdateViewModel](docs/Model/BookingUpdateViewModel.md)
+ - [BookingViewModel](docs/Model/BookingViewModel.md)
+ - [Configuration](docs/Model/Configuration.md)
+ - [ConfigurationOption](docs/Model/ConfigurationOption.md)
+ - [MessageCreateViewModel](docs/Model/MessageCreateViewModel.md)
+ - [MessageViewModel](docs/Model/MessageViewModel.md)
  - [OrderPaymentPublicViewModel](docs/Model/OrderPaymentPublicViewModel.md)
+ - [PosOrderData](docs/Model/PosOrderData.md)
+ - [PosOrderItem](docs/Model/PosOrderItem.md)
  - [RestaurantAppSettingsViewModel](docs/Model/RestaurantAppSettingsViewModel.md)
- - [RestaurantPublicViewModel](docs/Model/RestaurantPublicViewModel.md)
- - [ReviewPublicViewModel](docs/Model/ReviewPublicViewModel.md)
- - [ShiftPublicViewModel](docs/Model/ShiftPublicViewModel.md)
+ - [RestaurantViewModel](docs/Model/RestaurantViewModel.md)
+ - [ReviewSummaryViewModel](docs/Model/ReviewSummaryViewModel.md)
+ - [ReviewViewModel](docs/Model/ReviewViewModel.md)
+ - [ShiftViewModel](docs/Model/ShiftViewModel.md)
  - [TableListViewModel](docs/Model/TableListViewModel.md)
- - [TablePublicViewModel](docs/Model/TablePublicViewModel.md)
- - [TicketPublicViewModel](docs/Model/TicketPublicViewModel.md)
+ - [TableViewModel](docs/Model/TableViewModel.md)
+ - [TicketProductViewModel](docs/Model/TicketProductViewModel.md)
+ - [TicketViewModel](docs/Model/TicketViewModel.md)
+ - [VoucherProductViewModel](docs/Model/VoucherProductViewModel.md)
 
 ## Documentation For Authorization
 
